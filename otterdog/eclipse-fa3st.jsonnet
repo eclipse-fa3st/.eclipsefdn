@@ -1,6 +1,6 @@
 local orgs = import 'vendor/otterdog-defaults/otterdog-defaults.libsonnet';
 
-orgs.newOrg('eclipse-fa3st') {
+orgs.newOrg('dt.fa3st', 'eclipse-fa3st') {
   settings+: {
     description: "",
     name: "Fa3st Project",
