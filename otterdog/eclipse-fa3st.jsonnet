@@ -18,7 +18,6 @@ orgs.newOrg('eclipse-fa3st') {
       web_commit_signoff_required: false,
       workflows+: {
         default_workflow_permissions: "read",
-      },
     },
     orgs.newRepo('fa3st-checkstyle') {
       allow_merge_commit: true,
@@ -27,7 +26,6 @@ orgs.newOrg('eclipse-fa3st') {
       web_commit_signoff_required: false,
       workflows+: {
         default_workflow_permissions: "read",
-      },
     },
     orgs.newRepo('fa3st-common') {
       allow_merge_commit: true,
@@ -36,7 +34,6 @@ orgs.newOrg('eclipse-fa3st') {
       web_commit_signoff_required: false,
       workflows+: {
         default_workflow_permissions: "read",
-      },
     },
     orgs.newRepo('fa3st-service') {
       allow_merge_commit: true,
@@ -45,7 +42,6 @@ orgs.newOrg('eclipse-fa3st') {
       web_commit_signoff_required: false,
       workflows+: {
         default_workflow_permissions: "read",
-      },
     },
     orgs.newRepo('fa3st-registry') {
       allow_merge_commit: true,
@@ -54,7 +50,6 @@ orgs.newOrg('eclipse-fa3st') {
       web_commit_signoff_required: false,
       workflows+: {
         default_workflow_permissions: "read",
-      },
     },
     orgs.newRepo('fa3st-client') {
       allow_merge_commit: true,
@@ -63,7 +58,11 @@ orgs.newOrg('eclipse-fa3st') {
       web_commit_signoff_required: false,
       workflows+: {
         default_workflow_permissions: "read",
-      },
     },
+  ],
+} + {
+  # snippet added due to 'https://github.com/EclipseFdn/otterdog-configs/blob/main/blueprints/add-dot-github-repo.yml'
+  _repositories+:: [
+    orgs.newRepo('.github')
   ],
 }
