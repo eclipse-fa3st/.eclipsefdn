@@ -11,6 +11,33 @@ orgs.newOrg('eclipse-fa3st') {
     },
   },
   _repositories+:: [
+    orgs.newRepo('fa3st-parent') {
+      allow_merge_commit: true,
+      allow_update_branch: false,
+      delete_branch_on_merge: true,
+      web_commit_signoff_required: false,
+      workflows+: {
+        default_workflow_permissions: "read",
+      },
+    },
+    orgs.newRepo('fa3st-checkstyle') {
+      allow_merge_commit: true,
+      allow_update_branch: false,
+      delete_branch_on_merge: true,
+      web_commit_signoff_required: false,
+      workflows+: {
+        default_workflow_permissions: "read",
+      },
+    },
+    orgs.newRepo('fa3st-common') {
+      allow_merge_commit: true,
+      allow_update_branch: false,
+      delete_branch_on_merge: true,
+      web_commit_signoff_required: false,
+      workflows+: {
+        default_workflow_permissions: "read",
+      },
+    },
     orgs.newRepo('fa3st-service') {
       allow_merge_commit: true,
       allow_update_branch: false,
@@ -28,6 +55,15 @@ orgs.newOrg('eclipse-fa3st') {
       workflows+: {
         default_workflow_permissions: "read",
       },
+    orgs.newRepo('fa3st-client') {
+      allow_merge_commit: true,
+      allow_update_branch: false,
+      delete_branch_on_merge: true,
+      web_commit_signoff_required: false,
+      workflows+: {
+        default_workflow_permissions: "read",
+      },
+    },
     },
   ],
 }
