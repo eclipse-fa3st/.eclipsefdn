@@ -55,6 +55,7 @@ orgs.newOrg('eclipse-fa3st') {
       workflows+: {
         default_workflow_permissions: "read",
       },
+    },
     orgs.newRepo('fa3st-client') {
       allow_merge_commit: true,
       allow_update_branch: false,
@@ -63,7 +64,6 @@ orgs.newOrg('eclipse-fa3st') {
       workflows+: {
         default_workflow_permissions: "read",
       },
-    },
     },
   ],
 }
