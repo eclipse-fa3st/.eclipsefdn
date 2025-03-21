@@ -18,6 +18,7 @@ orgs.newOrg('eclipse-fa3st') {
       web_commit_signoff_required: false,
       workflows+: {
         default_workflow_permissions: "read",
+      },
     },
     orgs.newRepo('fa3st-checkstyle') {
       allow_merge_commit: true,
