@@ -17,6 +17,7 @@ orgs.newOrg('dt.fa3st', 'eclipse-fa3st') {
       web_commit_signoff_required: false,
     },
     orgs.newRepo('fa3st-codestyle') {
+      aliases: ['fa3st-checkstyle'],
       allow_merge_commit: true,
       allow_update_branch: false,
       delete_branch_on_merge: true,
