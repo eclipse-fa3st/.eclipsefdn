@@ -9,6 +9,26 @@ orgs.newOrg('dt.fa3st', 'eclipse-fa3st') {
       actions_can_approve_pull_request_reviews: false,
     },
   },
+  secrets+: [
+    orgs.newOrgSecret('GPG_KEY_ID') {
+      value: "pass:bots/dt.fa3st/gpg/key_id",
+    },
+    orgs.newOrgSecret('GPG_PASSPHRASE') {
+      value: "pass:bots/dt.fa3st/gpg/passphrase",
+    },
+    orgs.newOrgSecret('GPG_PRIVATE_KEY') {
+      value: "pass:bots/dt.fa3st/gpg/secret-subkeys.asc",
+    },
+    orgs.newOrgSecret('GPG_SUBKEY_ID') {
+      value: "pass:bots/dt.fa3st/gpg/subkey_id",
+    },
+    orgs.newOrgSecret('CENTRAL_SONATYPE_TOKEN_PASSWORD') {
+      value: "pass:bots/dt.fa3st/central.sonatype.org/gh-token-password",
+    },
+    orgs.newOrgSecret('CENTRAL_SONATYPE_TOKEN_USERNAME') {
+      value: "pass:bots/dt.fa3st/central.sonatype.org/gh-token-username",
+    },
+  ],
   _repositories+:: [
     orgs.newRepo('fa3st-parent') {
       allow_merge_commit: true,
