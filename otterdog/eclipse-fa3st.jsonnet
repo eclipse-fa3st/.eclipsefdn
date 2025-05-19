@@ -23,10 +23,10 @@ orgs.newOrg('dt.fa3st', 'eclipse-fa3st') {
       value: "pass:bots/dt.fa3st/gpg/subkey_id",
     },
     orgs.newOrgSecret('CENTRAL_SONATYPE_TOKEN_PASSWORD') {
-      value: "pass:bots/dt.fa3st/central.sonatype.org/gh-token-password",
+      value: "pass:bots/dt.fa3st/central.sonatype.org/token-password",
     },
     orgs.newOrgSecret('CENTRAL_SONATYPE_TOKEN_USERNAME') {
-      value: "pass:bots/dt.fa3st/central.sonatype.org/gh-token-username",
+      value: "pass:bots/dt.fa3st/central.sonatype.org/token-username",
     },
   ],
   _repositories+:: [
