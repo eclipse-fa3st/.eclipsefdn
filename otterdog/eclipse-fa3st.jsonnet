@@ -28,6 +28,12 @@ orgs.newOrg('dt.fa3st', 'eclipse-fa3st') {
     orgs.newOrgSecret('CENTRAL_SONATYPE_TOKEN_USERNAME') {
       value: "pass:bots/dt.fa3st/central.sonatype.org/token-username",
     },
+    orgs.newOrgSecret('DOCKER_USERNAME') {
+      value: "pass:bots/dt.fa3st/docker.com/username",
+    },
+    orgs.newOrgSecret('DOCKER_TOKEN') {
+      value: "pass:bots/dt.fa3st/docker.com/api-token",
+    },
   ],
   _repositories+:: [
     orgs.newRepo('fa3st-parent') {
