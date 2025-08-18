@@ -10,6 +10,12 @@ orgs.newOrg('dt.fa3st', 'eclipse-fa3st') {
     },
   },
   secrets+: [
+    orgs.newOrgSecret('CENTRAL_SONATYPE_TOKEN_PASSWORD') {
+      value: "pass:bots/dt.fa3st/central.sonatype.org/token-password",
+    },
+    orgs.newOrgSecret('CENTRAL_SONATYPE_TOKEN_USERNAME') {
+      value: "pass:bots/dt.fa3st/central.sonatype.org/token-username",
+    },
     orgs.newOrgSecret('GPG_KEY_ID') {
       value: "pass:bots/dt.fa3st/gpg/key_id",
     },
@@ -22,94 +28,83 @@ orgs.newOrg('dt.fa3st', 'eclipse-fa3st') {
     orgs.newOrgSecret('GPG_SUBKEY_ID') {
       value: "pass:bots/dt.fa3st/gpg/subkey_id",
     },
-    orgs.newOrgSecret('CENTRAL_SONATYPE_TOKEN_PASSWORD') {
-      value: "pass:bots/dt.fa3st/central.sonatype.org/token-password",
+    orgs.newOrgSecret('DOCKER_USERNAME') {
+      value: "pass:bots/dt.fa3st/docker.com/username",
     },
-    orgs.newOrgSecret('CENTRAL_SONATYPE_TOKEN_USERNAME') {
-      value: "pass:bots/dt.fa3st/central.sonatype.org/token-username",
+    orgs.newOrgSecret('DOCKER_TOKEN') {
+      value: "pass:bots/dt.fa3st/docker.com/api-token",
     },
   ],
   _repositories+:: [
-    orgs.newRepo('fa3st-parent') {
-      allow_merge_commit: true,
-      allow_update_branch: false,
-      delete_branch_on_merge: true,
-      web_commit_signoff_required: false,
-    },
-    orgs.newRepo('fa3st-codestyle') {
-      aliases: ['fa3st-checkstyle'],
-      allow_merge_commit: true,
-      allow_update_branch: false,
-      delete_branch_on_merge: true,
-      web_commit_signoff_required: false,
-    },
-    orgs.newRepo('fa3st-common') {
-      allow_merge_commit: true,
-      allow_update_branch: false,
-      delete_branch_on_merge: true,
-      web_commit_signoff_required: false,
-    },
-    orgs.newRepo('fa3st-service') {
-      allow_merge_commit: true,
-      allow_update_branch: false,
-      delete_branch_on_merge: true,
-      web_commit_signoff_required: false,
-      webhooks+: [
-        orgs.newRepoWebhook('https://readthedocs.org/api/v2/webhook/fa3st-service/295569/') {
-          events+: [
-            "create",
-            "delete",
-            "push",
-            "pull_request"
-          ],
-          secret: "pass:bots/dt.fa3st/readthedocs.org/fa3st-service-webhook-secret",
-        },
-      ],
-    },
-    orgs.newRepo('fa3st-registry') {
-      allow_merge_commit: true,
-      allow_update_branch: false,
-      delete_branch_on_merge: true,
-      web_commit_signoff_required: false,
-      webhooks+: [
-        orgs.newRepoWebhook('https://readthedocs.org/api/v2/webhook/fa3st-registry/295571/') {
-          events+: [
-            "create",
-            "delete",
-            "push",
-            "pull_request"
-          ],
-          secret: "pass:bots/dt.fa3st/readthedocs.org/fa3st-registry-webhook-secret",
-        },
-      ],
+    orgs.newRepo('.github') {
     },
     orgs.newRepo('fa3st-client') {
       allow_merge_commit: true,
       allow_update_branch: false,
-      delete_branch_on_merge: true,
       web_commit_signoff_required: false,
-      webhooks+: [
+      webhooks: [
         orgs.newRepoWebhook('https://readthedocs.org/api/v2/webhook/fa3st-client/295572/') {
           events+: [
             "create",
             "delete",
-            "push",
-            "pull_request"
+            "pull_request",
+            "push"
           ],
           secret: "pass:bots/dt.fa3st/readthedocs.org/fa3st-client-webhook-secret",
         },
       ],
     },
+    orgs.newRepo('fa3st-codestyle') {
+      allow_merge_commit: true,
+      allow_update_branch: false,
+      web_commit_signoff_required: false,
+    },
+    orgs.newRepo('fa3st-common') {
+      allow_merge_commit: true,
+      allow_update_branch: false,
+      web_commit_signoff_required: false,
+    },
     orgs.newRepo('fa3st-helm') {
       allow_merge_commit: true,
       allow_update_branch: false,
-      delete_branch_on_merge: true,
       web_commit_signoff_required: false,
     },
-  ],
-} + {
-  # snippet added due to 'https://github.com/EclipseFdn/otterdog-configs/blob/main/blueprints/add-dot-github-repo.yml'
-  _repositories+:: [
-    orgs.newRepo('.github')
+    orgs.newRepo('fa3st-parent') {
+      allow_merge_commit: true,
+      allow_update_branch: false,
+      web_commit_signoff_required: false,
+    },
+    orgs.newRepo('fa3st-registry') {
+      allow_merge_commit: true,
+      allow_update_branch: false,
+      web_commit_signoff_required: false,
+      webhooks: [
+        orgs.newRepoWebhook('https://readthedocs.org/api/v2/webhook/fa3st-registry/295571/') {
+          events+: [
+            "create",
+            "delete",
+            "pull_request",
+            "push"
+          ],
+          secret: "pass:bots/dt.fa3st/readthedocs.org/fa3st-registry-webhook-secret",
+        },
+      ],
+    },
+    orgs.newRepo('fa3st-service') {
+      allow_merge_commit: true,
+      allow_update_branch: false,
+      web_commit_signoff_required: false,
+      webhooks: [
+        orgs.newRepoWebhook('https://readthedocs.org/api/v2/webhook/fa3st-service/295569/') {
+          events+: [
+            "create",
+            "delete",
+            "pull_request",
+            "push"
+          ],
+          secret: "pass:bots/dt.fa3st/readthedocs.org/fa3st-service-webhook-secret",
+        },
+      ],
+    },
   ],
 }
